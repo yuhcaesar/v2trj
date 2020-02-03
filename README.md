@@ -1,6 +1,6 @@
 # 一键脚本 V2ray-ws-tls + Trojan 
 
-一键就完事了，扫描二维码 或者 复制 vmess链接 无需关心复杂的V2ray 配置，websocket + tls 更安全，伪装更好。
+一键就完事了，扫描二维码 或者 复制 vmess链接 无需关心复杂的V2ray 配置，websocket + tls 更安全，CDN + fake site伪装更好, 而Trojan速度更快（但目前不支持CDN）。
 
 * 自动生成 UUID （调用系统UUID库）
 * 默认使用 caddy 自动获取证书
