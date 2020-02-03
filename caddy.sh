@@ -4,7 +4,7 @@ domain="$1"
 psname="$2"
 uuid=$(uuidgen)
 cat > /etc/Caddyfile <<'EOF'
-domain:80
+domain
 {
   log ./caddy.log
   root /srv/html
@@ -134,5 +134,5 @@ cat /etc/v2ray/config.json
 cat /etc/trojan/config.json
 node v2ray.js
 echo "Trojan password: ${uuid}"
-nohup /bin/parent /usr/bin/v2ray -config /etc/v2ray/config.json & 
-/usr/local/bin/trojan /etc/trojan/config.json 
+# nohup /bin/parent /usr/local/bin/trojan /etc/trojan/config.json &
+/usr/bin/v2ray -config /etc/v2ray/config.json  
