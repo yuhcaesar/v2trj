@@ -29,7 +29,7 @@
  * 请将下面命令 DOMAIN 和 V2TRJ 分别换成自己的镜像名称，域名和节点名称！！！
 
  ```
- sudo docker run -d --rm -name v2trj -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy yuhcaesar/v2trj DOMAIN V2TRJ && sleep 3s && sudo docker logs v2trj
+ sudo docker run -d --rm --name v2trj -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy yuhcaesar/v2trj DOMAIN V2TRJ && sleep 3s && sudo docker logs v2trj
  ```
 
  * Trojan 客户端配置文件需要修改 "remote_addr" 字段为自己的域名，密码为之前自动生成的UUID（服务端配置文件在/etc/trojan/config.json）
