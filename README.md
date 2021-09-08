@@ -17,19 +17,20 @@
  ```
  * 解析好域名 确认 你的域名正确解析到了你安装的这台服务器
  * 会占用 443 和 80 端口请提前确认没有跑其他的业务 （ lsof -i:80 和 lsof -i:443 能查看）
- * BUILD 容器, v2trjyuhcaesar/v2trj 可以换成自己的镜像名称，
+ * BUILD 容器, yuhcaesar/v2trj 可以换成自己的镜像名称，
+ * 注意，以下都需要使用root权限。
  ```
- # docker build -t yuhcaesar/v2trj .
+ docker build -t yuhcaesar/v2trj .
  ```
  * 或者直接从docker hub上下载相关镜像。
  ```
- # docker pull yuhcaesar/v2trj 
+ docker pull yuhcaesar/v2trj 
  ```
 
- * 请将下面命令 DOMAIN 和 V2TRJ 分别换成自己的域名和节点名称！！！
+ * 请将下面命令 DOMAIN 和 v2trj 分别换成自己的域名和节点名称！！！
 
  ```
- # docker run -d --rm --name v2trj -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy yuhcaesar/v2trj DOMAIN V2TRJ && sleep 10s && docker logs v2trj
+ docker run -d --rm --name v2trj -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy yuhcaesar/v2trj DOMAIN v2trj && sleep 10s && docker logs v2trj
  ```
 
  * Trojan 客户端配置文件需要修改 "remote_addr" 字段为自己的域名，密码为之前自动生成的UUID（服务端配置文件在/etc/trojan/config.json）
@@ -42,13 +43,13 @@
  * 查看容器ID
  * 进入容器，请将 v2trj替换成自己的 容器ID
  ```
- # docker exec -it v2trj /bin/bash
+ docker exec -it v2trj /bin/bash
  node v2ray.js
  ```
 
  * 或者查看log信息
  ```
- # docker logs v2trj --tail 50
+ docker logs v2trj --tail 50
  ```
 
 感谢pengchujin 感谢fake website的作者
